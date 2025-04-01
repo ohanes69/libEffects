@@ -21,3 +21,133 @@
 /* How to use in HTML
 <div class="shiny-text">Mon texte brillant</div>
 */
+
+/* Text Split */
+
+.letter {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.visible .letter {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* How to use in HTML
+    <p id="animatedText" class="text-2xl font-semibold text-center text-gray-800"></p>
+*/
+
+/* Text Blur */
+
+.blur-text {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, filter 0.6s ease-out, transform 0.6s ease-out;
+}
+.blur-text.visible {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateY(0);
+}
+
+/* How to use in HTML
+<p id="blurText" class="blur-text text-2xl font-semibold text-gray-800">
+        Ce texte apparaît progressivement avec un effet de flou.
+    </p>
+*/
+
+/* Gradient Text */
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.gradient-text {
+  background-image: linear-gradient(to right, #40ffaa, #4079ff, #40ffaa);
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradient 8s linear infinite;
+}
+
+/* How to use in HTML
+<div class="relative max-w-fit flex flex-row items-center justify-center rounded-xl font-medium backdrop-blur transition-shadow duration-500 overflow-hidden cursor-pointer p-4">
+            <div class="gradient-text text-4xl font-bold">Gradient Animé</div>
+        </div>
+*/
+
+/* Text Hidden */
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 1;
+  }
+}
+
+.falling-word {
+  animation: fall 3s forwards ease-in-out;
+  position: relative;
+  display: inline-block;
+}
+
+/* Styles de base pour la mise en page */
+.falling-text-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* How to use in HTML
+<div id="falling-text-container" class="relative w-full flex items-center justify-center overflow-hidden">
+            <div id="falling-text" class="text-center font-bold text-3xl select-none text-red-500">
+              Le texte va disparaître.
+            </div>
+          </div>
+*/
+
+/* Animation pour le focus */
+  @keyframes focusAnimation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  #focus-box {
+    border: 2px solid transparent;
+    transition: all 0.5s ease;
+    position: absolute;
+    pointer-events: none;
+    box-sizing: border-box;
+  }
+
+  /* Pour ajouter des effets de glow */
+  .glow {
+    box-shadow: 0 0 8px 2px rgba(0, 255, 0, 0.6);
+  }
+
+  .focused-text {
+    padding: 5px; /* Ajouter du padding pour espacer la bordure du texte */
+  }
+
+  /* How to use in HTML
+<div id="true-focus-container" class="relative flex gap-4 justify-center items-center flex-wrap">
+            <div id="true-focus-text" class="relative text-[3rem] font-black cursor-pointer"></div>
+            <div id="focus-box" class="absolute pointer-events-none box-border border-0"></div>
+          </div>
+*/

@@ -5,9 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>textAnimations</title>
     <link rel="stylesheet" href="textAnimations.css">
+    <script src="textAnimations.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="flex justify-center items-center min-h-screen bg-gray-500">
-    <p id="shinyText" class="text-4xl font-bold shiny-text">Texte Brillant</p>
+    <div class="flex flex-col">
+        <p id="shinyText" class="text-3xl font-bold shiny-text">Texte Brillant</p>
+        <p id="animatedText" class="text-3xl font-semibold text-center text-gray-800"></p>
+        <p id="blurText" class="blur-text text-3xl font-semibold text-gray-800">
+            Ce texte apparaît progressivement avec un effet de flou.
+        </p>
+        <div class="relative max-w-fit flex flex-row items-center justify-center rounded-xl font-medium backdrop-blur transition-shadow duration-500 overflow-hidden cursor-pointer p-4">
+            <div class="gradient-text text-3xl font-bold">Gradient Animé</div>
+        </div>
+        <div id="falling-text-container" class="relative w-full flex items-center justify-center overflow-hidden">
+            <div id="falling-text" class="text-center font-bold text-3xl select-none text-red-500">
+              Le texte va disparaître.
+            </div>
+        </div>
+        <div id="true-focus-container" class="relative flex gap-4 justify-center items-center flex-wrap">
+            <div id="true-focus-text" class="relative text-[3rem] font-black cursor-pointer"></div>
+            <div id="focus-box" class="absolute pointer-events-none box-border border-0"></div>
+        </div>
+    </div>
 </body>
 </html>
