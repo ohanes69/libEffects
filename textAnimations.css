@@ -151,3 +151,90 @@
             <div id="focus-box" class="absolute pointer-events-none box-border border-0"></div>
           </div>
 */
+
+
+/* Rotationg Text */
+.text-rotate {
+  display: flex;
+  flex-wrap: wrap;
+  white-space: pre-wrap;
+  position: relative;
+  overflow: hidden;
+  height: 2rem; /* Ajuste à la hauteur du texte */
+}
+
+.text-rotate-word {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.text-rotate-word.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*
+<div class="text-3xl font-bold text-rotate w-64 h-8 relative">
+            <span class="text-rotate-word active text-red-300">Premier texte</span>
+            <span class="text-rotate-word text-blue-300">Deuxième texte</span>
+            <span class="text-rotate-word text-emerald-300">Troisième texte</span>
+        </div> */
+
+/*  Scrool Speed */
+  .parallax {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.scroller {
+    display: flex;
+    text-align: center;
+    font-size: 2.25rem;
+    font-weight: bold;
+    letter-spacing: -0.02em;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
+    transition: transform 0.1s linear;
+}
+
+/*
+<section class="overflow-hidden w-full">
+            <div class="parallax w-full overflow-hidden">
+                <div class="scroller flex gap-4 will-change-transform">
+                    <span>Défilement</span>
+                    <span>Rapide</span>
+                    <span>Avec</span>
+                    <span>Vitesse</span>
+                    <span>Variable</span>
+                    <span>Scroll</span>
+                </div>
+            </div>
+        </section> */
+
+/* Count */
+        .count-up {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+      }
+      
+      .count-up.visible {
+          opacity: 1;
+          transform: translateY(0);
+      }
+
+/* <span class="count-up text-5xl font-extrabold gradient-text" 
+            data-from="0" 
+            data-to="1000" 
+            data-duration="2">
+        </span>
+
+        <span class="count-up text-5xl font-extrabold"
+            data-from="500" 
+            data-to="100" 
+            data-duration="3" 
+            data-direction="down">
+        </span> */

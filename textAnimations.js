@@ -143,3 +143,84 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   });
+
+
+// Rotating Text
+  document.addEventListener("DOMContentLoaded", () => {
+    const texts = document.querySelectorAll(".text-rotate-word");
+    let currentIndex = 0;
+    
+    function rotateText() {
+        texts[currentIndex].classList.remove("active");
+        currentIndex = (currentIndex + 1) % texts.length;
+        texts[currentIndex].classList.add("active");
+    }
+    
+    setInterval(rotateText, 2000);
+});
+
+// Scrool Speed
+document.addEventListener("DOMContentLoaded", function () {
+  const scroller = document.querySelector(".scroller");
+  let position = 0;
+  let speed = 3; // Pour ajuster la vitesse
+
+  function updatePosition() {
+      position -= speed;
+      if (position < -scroller.scrollWidth / 2) {
+          position = 0;
+      }
+      scroller.style.transform = `translateX(${position}px)`;
+      requestAnimationFrame(updatePosition);
+  }
+
+  updatePosition();
+});
+
+
+// Count
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll(".count-up");
+
+  const animateCountUp = (el) => {
+      const from = parseInt(el.getAttribute("data-from") || "0");
+      const to = parseInt(el.getAttribute("data-to") || "100");
+      const duration = parseFloat(el.getAttribute("data-duration") || "2");
+      const direction = el.getAttribute("data-direction") || "up";
+      const separator = el.getAttribute("data-separator") || "";
+
+      let start = direction === "down" ? to : from;
+      let end = direction === "down" ? from : to;
+
+      let startTime = null;
+
+      const formatNumber = (num) => {
+          return separator ? num.toLocaleString("en-US").replace(/,/g, separator) : num;
+      };
+
+      const step = (timestamp) => {
+          if (!startTime) startTime = timestamp;
+          const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
+          const value = Math.floor(start + (end - start) * progress);
+          el.textContent = formatNumber(value);
+
+          if (progress < 1) {
+              requestAnimationFrame(step);
+          }
+      };
+
+      requestAnimationFrame(step);
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              animateCountUp(entry.target);
+              observer.unobserve(entry.target); // Une seule fois
+          }
+      });
+  }, { threshold: 0.5 });
+
+  counters.forEach(counter => observer.observe(counter));
+});
