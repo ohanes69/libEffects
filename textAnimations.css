@@ -129,7 +129,6 @@
   }
 
   #focus-box {
-    border: 2px solid transparent;
     transition: all 0.5s ease;
     position: absolute;
     pointer-events: none;
@@ -238,3 +237,34 @@
             data-duration="3" 
             data-direction="down">
         </span> */
+
+/* Click Spark */
+  .spark-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .spark-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+/*     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+        <div class="spark-container" id="sparkContainer">
+            Click Anywhere
+            <canvas id="sparkCanvas" class="spark-canvas"></canvas>
+        </div>
+*/

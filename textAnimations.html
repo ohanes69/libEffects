@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="textAnimations.css">
     <script src="textAnimations.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
 </head>
-<body class="flex justify-center items-center min-h-screen bg-gray-500">
-    <div class="flex flex-col">
+<body class="flex justify-center items-center bg-gray-500">
+    <div class="flex flex-col h-screen">
         <p id="shinyText" class="text-3xl font-bold shiny-text">Texte Brillant</p>
         <p id="animatedText" class="text-3xl font-semibold text-center text-gray-800"></p>
         <p id="blurText" class="blur-text text-3xl font-semibold text-gray-800">
@@ -49,13 +51,16 @@
             data-to="1000" 
             data-duration="2">
         </span>
-
         <span class="count-up text-5xl font-extrabold"
             data-from="500" 
             data-to="100" 
             data-duration="3" 
             data-direction="down">
         </span>
+    </div>
+    <div class="spark-container" id="sparkContainer">
+        Click Anywhere
+        <canvas id="sparkCanvas" class="spark-canvas"></canvas>
     </div>
 </body>
 </html>

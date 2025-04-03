@@ -224,3 +224,81 @@ document.addEventListener("DOMContentLoaded", () => {
 
   counters.forEach(counter => observer.observe(counter));
 });
+
+
+
+// Click Spark
+document.addEventListener("DOMContentLoaded", function () {
+  const canvas = document.getElementById("sparkCanvas");
+  const ctx = canvas.getContext("2d");
+  const sparkContainer = document.getElementById("sparkContainer");
+  
+  // Pour changer la taille, duration...
+  let sparks = [];
+  const sparkColor = "#fff";
+  const sparkSize = 25;
+  const sparkRadius = 130;
+  const sparkCount = 18;
+  const duration = 1.0;
+  const easing = "ease-out";
+
+  const resizeCanvas = () => {
+    canvas.width = sparkContainer.clientWidth;
+    canvas.height = sparkContainer.clientHeight;
+  };
+
+  window.addEventListener("resize", resizeCanvas);
+  resizeCanvas();
+
+  function easeFunc(t) {
+    switch (easing) {
+      case "linear": return t;
+      case "ease-in": return t * t;
+      case "ease-in-out": return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+      default: return t * (2 - t);
+    }
+  }
+
+  function animateSparks() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    sparks = sparks.filter(spark => {
+      const progress = (performance.now() - spark.startTime) / (duration * 1000);
+      if (progress >= 1) return false;
+
+      const easedProgress = easeFunc(progress);
+      const distance = easedProgress * sparkRadius;
+      const size = sparkSize * (1 - easedProgress);
+
+      const x = spark.x + distance * Math.cos(spark.angle);
+      const y = spark.y + distance * Math.sin(spark.angle);
+
+      ctx.fillStyle = sparkColor;
+      ctx.beginPath();
+      ctx.arc(x, y, size / 2, 0, Math.PI * 2);
+      ctx.fill();
+
+      return true;
+    });
+
+    requestAnimationFrame(animateSparks);
+  }
+
+  function createSparks(x, y) {
+    const now = performance.now();
+    for (let i = 0; i < sparkCount; i++) {
+      sparks.push({
+        x,
+        y,
+        angle: (2 * Math.PI * i) / sparkCount,
+        startTime: now
+      });
+    }
+  }
+
+  sparkContainer.addEventListener("click", (e) => {
+    const rect = canvas.getBoundingClientRect();
+    createSparks(e.clientX - rect.left, e.clientY - rect.top);
+  });
+
+  animateSparks();
+});
