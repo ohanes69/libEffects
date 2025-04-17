@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>textAnimations</title>
-    <link rel="stylesheet" href="textAnimations.css">
-    <script src="textAnimations.js" defer></script>
+    <title>Components</title>
+    <link rel="stylesheet" href="components.css">
+    <script src="components.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
@@ -18,5 +18,59 @@
         <div id="top-gradient" class="absolute top-0 left-0 right-0 h-[50px] bg-gradient-to-b from-[#EEEE] to-transparent pointer-events-none transition-opacity duration-300 ease" style="opacity: 0;"></div>
         <div id="bottom-gradient" class="absolute bottom-0 left-0 right-0 h-[100px] bg-gradient-to-t from-[#EEEE] to-transparent pointer-events-none transition-opacity duration-300 ease" style="opacity: 1;"></div>
       </div>
+
+
+      <div
+      id="dock"
+      class="relative flex items-end gap-4 p-4 pb-6 rounded-2xl">
+      <!-- Icons will be injected by JavaScript -->
+    </div>
+
+
+    <div id="horizontal-masonry-wrapper" class="overflow-x-auto px-4 py-8">
+      <div id="horizontal-masonry" class="flex gap-4 h-[300px] items-end">
+        <!-- JS va injecter les cartes ici -->
+      </div>
+    </div>
+
+
+    <div class="flex flex-row gap-8 items-center justify-center">
+      <div class="text-white mb-4">
+        <div class="w-[300px] h-[450px] overflow-hidden border border-white rounded-2xl p-4 relative bg-black">
+          <div
+            id="carousel"
+            class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide"
+          >
+            <div class="shrink-0 w-full snap-center flex flex-col items-center">
+              <img src="IMG_8840.JPG" alt="1" class="w-full h-80 object-cover rounded-md mb-3" />
+              <h2 class="text-lg font-bold">Image 1</h2>
+              <p class="text-sm text-white text-center">Voici la première image.</p>
+            </div>
+            <div class="shrink-0 w-full snap-center flex flex-col items-center">
+              <img src="IMG_8839.JPG" alt="2" class="w-full h-80 object-cover rounded-md mb-3" />
+              <h2 class="text-lg font-bold">Image 2</h2>
+              <p class="text-sm text-white text-center">Voici la deuxième image.</p>
+            </div>
+          </div>
+          <!-- Dots -->
+          <div class="flex justify-center gap-2 mt-4" id="dots">
+            <button id="buttonCarrousel1" class="h-2 w-2 bg-white/60 rounded-full hover:bg-white" onclick="scrollToSlide(0)"></button>
+            <button id="buttonCarrousel2" class="h-2 w-2 bg-white/60 rounded-full hover:bg-white" onclick="scrollToSlide(1)"></button>
+          </div>
+        </div>
+      </div>
+  
+
+      <div
+        id="spotlight-card"
+        class="relative rounded-3xl border border-gray-300 bg-white overflow-hidden p-8 w-[300px] h-[300px] text-white"
+        tabindex="0">
+        <div id="spotlight-overlay" class="spotlight-layer opacity-0"></div>
+        <h1 class="text-xl font-bold mb-2 text-blue-300">Spotlight Card</h1>
+        <p class="text-blue-300">Déplace la souris ou utilise le clavier pour voir l'effet lumineux.</p>
+      </div>
+  </div>
+
+
 </body>
 </html>
