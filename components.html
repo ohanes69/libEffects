@@ -69,6 +69,52 @@
         <h1 class="text-xl font-bold mb-2 text-blue-300">Spotlight Card</h1>
         <p class="text-blue-300">Déplace la souris ou utilise le clavier pour voir l'effet lumineux.</p>
       </div>
+
+      <div id="glass-icons" class="grid gap-[5em] grid-cols-2 md:grid-cols-3 mx-auto py-[3em] overflow-visible"></div>
+
+      <div class="w-48 flex flex-col items-center justify-center gap-4 pr-4">
+        <div
+          class="flex w-full items-center justify-center gap-4 slider-container"
+          id="sliderWrapper"
+        >
+          <div id="leftIcon" class="text-xl cursor-pointer">-</div>
+  
+          <div
+            id="slider"
+            class="relative flex w-full max-w-xs flex-grow cursor-grab items-center py-4"
+          >
+            <div class="relative h-2 w-full overflow-hidden rounded-full bg-gray-400">
+              <div
+                id="sliderFill"
+                class="absolute h-full bg-gray-500 rounded-full"
+                style="width: 50%"
+              ></div>
+            </div>
+          </div>
+  
+          <div id="rightIcon" class="text-md cursor-pointer">+</div>
+        </div>
+  
+        <p
+          id="sliderValue"
+          class="text-gray-400 text-xs font-medium tracking-wide -translate-y-4"
+        >
+          50
+        </p>
+      </div>
+
+  </div>
+
+  <div id="gallery-container" class="relative h-[500px] w-full overflow-hidden">
+    <div class="absolute top-0 left-0 h-full w-[48px] z-10"></div>
+    <div class="absolute top-0 right-0 h-full w-[48px] z-10"></div>
+  
+    <div class="flex h-full items-center justify-center [perspective:1000px] [transform-style:preserve-3d]">
+      <div
+        id="cylinder"
+        class="flex min-h-[200px] cursor-grab items-center justify-center [transform-style:preserve-3d]"
+      ></div>
+    </div>
   </div>
 
 

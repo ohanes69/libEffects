@@ -53,3 +53,24 @@
         <h1 class="text-xl font-bold mb-2">Spotlight Card</h1>
         <p>Déplace la souris ou utilise le clavier pour voir l'effet lumineux.</p>
       </div> */
+
+
+      /* Glass icon */ 
+      .icon-button .back-layer {
+        box-shadow: 0.5em -0.5em 0.75em hsla(223, 10%, 10%, 0.15);
+      }
+      .icon-button .front-layer {
+        box-shadow: 0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset;
+      }
+
+      /* <div id="glass-icons" class="grid gap-[5em] grid-cols-2 md:grid-cols-3 mx-auto py-[3em] overflow-visible"></div> */
+
+
+
+      /* Elastic Slider */
+
+      .slider-container {
+        touch-action: none;
+      }
+      
+      
